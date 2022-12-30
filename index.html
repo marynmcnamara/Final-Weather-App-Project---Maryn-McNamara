@@ -20,8 +20,46 @@
   </head>
   <body>
     <div class="container">
-        
+      <form>
+        <div class="row">
+          <div class="col-9">
+            <input
+              type="search"
+              placeholder="Enter a city..."
+              class="form-control search-input"
+            />
+          </div>
+          <div class="col-3 p-0">
+            <input type="submit" class="btn btn-primary w-100" value="Search" />
+          </div>
+        </div>
+      </form>
+      <div class="WeatherInfo">
+        <div class="row">
+          <div class="col-6">
+            <h1>Boston</h1>
+            <p class="date">Tuesday 10:00</p>
+            <p class="description">broken clouds</p>
+            <p class="humidity">Humidity: 93%</p>
+            <p class="wind">Wind: 5 km/h</p>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-8">
+            <div class="temperature-container d-flex justify-content-emd">
+              <canvas width="52" height="52"></canvas>
+              <div>
+                <span class="temperature">11</span>
+                <span class="unit">°C</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
+  <a
+    href="https://github.com/marynmcnamara/Final-Weather-App-Project---Maryn-McNamara"
+    >Open-source code</a
+  >
+  by <a href="https://www.linkedin.com/in/marynburns">Maryn McNamara</a>
   <script src="src/app.js"></script>
 </html>
