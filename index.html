@@ -17,6 +17,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="src/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -37,26 +38,28 @@
       <div class="WeatherInfo">
         <div class="row">
           <div class="col-6">
-            <h1>Boston</h1>
+            <h1 id="city"></h1>
             <ul>
-              <li>
+              <li id="date">
                 <span>Tuesday 10:00</span>
-                , broken clouds
               </li>
+              <li id="description">Cloudy</li>
               <li>
                 Humidity:
-                <strong>93%</strong>
+                <strong><span id="humidity"></span>%</strong>
+              </li>
+              <li>
                 Wind:
-                <strong>5.36km/h</strong>
+                <strong><span id="wind"></span> km/h</strong>
               </li>
             </ul>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-8">
             <div class="temperature-container d-flex justify-content-emd">
-              <canvas width="52" height="52"></canvas>
+              <div class="emoji">☁️</div>
               <div>
-                <span class="temperature">11</span>
-                <span class="unit">°C</span>
+                <span class="temperature" id="temperature"></span>
+                <span class="unit">°C | <a href="#">°F</a></span>
               </div>
             </div>
           </div>
