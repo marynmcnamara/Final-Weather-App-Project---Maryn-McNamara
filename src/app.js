@@ -34,9 +34,9 @@ function displayTemperature(response) {
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  axios.get(apiUrl).then(displayTemperature);
 }
 
+let city = "Boston";
 let apiKey = "63cd308f75720f22d3aeffe4bbba1f05";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Boston&appid=${apiKey}&units=metric`;
-
-axios.get(apiUrl).then(displayTemperature);
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
