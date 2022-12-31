@@ -87,6 +87,9 @@
 .temperature-container {
   margin-top: 40px;
 }
+.units {
+  text-align: right;
+}
 footer {
   text-align: center;
   font-size: 10px;
