@@ -53,6 +53,18 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-search("Boston");
+function displayFahrenheit(event) {
+  event.preventDefault();
+  alert(hello);
+}
+
+let temperatureElement = document.querySelector("#temperature");
+let fahrenheitTemp = (temperatureElement.innerHTML * 9) / 5 + 32;
+
+temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
+search("Boston");
