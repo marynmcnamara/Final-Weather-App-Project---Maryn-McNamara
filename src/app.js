@@ -20,6 +20,24 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri"];
+  forecastHTML =
+    forecastHTML +
+    `div class="col-2">
+            <div class="forecast-time">Tue</div>
+            <img />
+            <div class="forecast-temperature">
+              <span class="forecast-temperature-max">14°</span>
+              <span class="forecast-temperature-min">11°</span>
+            </div>
+          </div>`;
+}
+
 function displayFahrenheit(event) {
   event.preventDefault();
   celsiusLink.classList.remove("active");
@@ -56,6 +74,7 @@ function displayTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  celsiusTemperature = response.data.main.temp;
 }
 function search(city) {
   let apiKey = "63cd308f75720f22d3aeffe4bbba1f05";
@@ -68,5 +87,16 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
+let celsiusTemperature = null;
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsius);
 
 search("Boston");
+displayForecast();
