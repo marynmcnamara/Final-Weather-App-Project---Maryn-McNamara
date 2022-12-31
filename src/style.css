@@ -1,12 +1,18 @@
+body {
+  background: #f9f7fe;
+}
 .WeatherInfo {
   font-family: Arial, Helvetica, sans-serif;
   background: white;
   border-radius: 16px;
-  box-shadow: 0px 30px 50px rgba(65, 50, 100, 0.08);
-  padding: 40px;
   color: rgb(135, 135, 135);
 }
-
+.container {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0px 30px 50px rgba(65, 50, 100, 0.08);
+  padding: 40px;
+}
 .container form {
   margin-top: 40px;
   border-bottom: 1px solid #f9f7fe;
@@ -89,6 +95,37 @@
 }
 .units {
   text-align: right;
+}
+.WeatherForecast {
+  text-align: center;
+  margin: 40px 0;
+  border-bottom: 1px solid #f9f7fe;
+  padding-bottom: 50px;
+}
+
+.WeatherForecast .forecast-time {
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: rgba(39, 33, 66, 0.4);
+}
+
+.WeatherForecast .forecast-temperature {
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #f65282;
+  font-weight: bold;
+}
+
+.WeatherForecast .forecast-temperature-min {
+  margin-left: 10px;
+  opacity: 0.6;
+}
+
+.Weather .WeatherForecast canvas {
+  display: block;
+  margin: 20px auto;
 }
 footer {
   text-align: center;
