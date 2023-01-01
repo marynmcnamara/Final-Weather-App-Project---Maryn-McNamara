@@ -22,20 +22,30 @@ function formatDate(timestamp) {
 }
 
 function displayForecast() {
-  let forecastElement = document.querySelector("#weather-forecast");
+  let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri"];
-  forecastHTML =
-    forecastHTML +
-    `div class="col-2">
-            <div class="forecast-time">Tue</div>
-            <img />
-            <div class="forecast-temperature">
-              <span class="forecast-temperature-max">14°</span>
-              <span class="forecast-temperature-min">11°</span>
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+            <div class="weather-forecast-day">${day}</div>
+            <img
+              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+              alt=""
+              width="42"
+            />
+            <div class="weather-forecast-temps">
+              <span class="temp-max">18°</span>
+              <span class="temp-min">12°</span>
             </div>
-          </div>`;
+          </div>
+        `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function displayFahrenheit(event) {
