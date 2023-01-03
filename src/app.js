@@ -18,7 +18,7 @@ function formatDate(timestamp) {
     minutes = `0${minutes}`;
   }
   let day = days[date.getDay()];
-  return `${day} ${hours}:${minutes}`;
+  return `Last updated: ${day} ${hours}:${minutes}`;
 }
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -70,26 +70,10 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-function displayFahrenheit(event) {
-  event.preventDefault();
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let temperatureElement = document.querySelector("#temperature");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-function displayCelsius(event) {
-  event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "5ao55858tc2a40f458b3fd5863e6d791";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=imperial`;
 
   console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
@@ -119,7 +103,7 @@ function displayTemperature(response) {
 }
 function search(city) {
   let apiKey = "5ao55858tc2a40f458b3fd5863e6d791";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayTemperature);
 }
 
@@ -132,11 +116,5 @@ let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheit);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsius);
 
 search("Boston");
